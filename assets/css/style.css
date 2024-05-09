@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html,
+body {
+  height: 100%;
+} */
+
+.main-container-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-container {
+  height: 100vh;
+}
+
+.cards {
+  height: 100vh;
+  width: 350px;
+  margin: auto auto;
+}
+
+
+
+.card_1,
+.card_2,
+.card_3,
+.card_4 {
+
+  padding: 20px 0;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+}
+
+.ele_form {
+  height: 80%;
+  /* margin: auto 40%; */
+  margin: 5% 40%;
+  width: 25%;
+  border: 1px solid gray;
+  border-radius: 2%;
+  box-shadow: 0 0 7px #4e4d4d;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.tnc {
+  display: inline;
+}
+
+.submit_Form {
+  background-color: #002f5f;
+  color: #fff;
+}
+
+
+
+.submit_Form .price {
+  width: 80%;
+  height: 20%;
+  background-color: #fff;
+  margin: 1.6rem auto;
+  color: blue;
+  text-align: center;
+}
+
+.form {
+  margin: 10%;
+}
+
+.mb-2 {
+  font-size: 1.6rem;
+  padding-top: 10px;
+}
+
+.submit_div {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.submit {
+  width: 60%;
+  padding: 5px;
+  margin-left: 20%;
+  background-color: #1677ff;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #1677ff;
+  border-radius: 10px;
+}
+
+.currency-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-box {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 25px;
+  background-color: #aaa7a7;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currency-symbol {
+  color:
+    white;
+  font-size: 16px;
+}
+
+.currency-input input {
+  padding-left: 30px;
+}
+
+#validationMessage3,
+#validationMessage2,
+#validationMessage1,
+#validationMessage {
+  color: red;
+  display: none;
+  margin-top: 5px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  margin-top: 50px;
+  display: grid;
+  justify-content: center;
+}
+
+.form-2 {
+  padding: 0 20px 0 20px;
+  min-height: 600px;
+  border: 2px grey solid;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0px rgba(68, 68, 68, 0.2), 0 4px 20px 0 rgba(54, 54, 54, 0.19);
+}
+
+.formTitle {
+  font-weight: bold;
+}
+
+.formWarning {
+  font-size: 12px;
+  left: 15px;
+  top: 75px;
+  position: absolute;
+  animation: fadeIn 0.3s;
+}
+
+.userForm {
+  width: 500px;
+  max-width: 80vw;
+  padding: 0 20px 0 20px;
+  min-height: 600px;
+  border: 2px grey solid;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0px rgba(68, 68, 68, 0.2), 0 4px 20px 0 rgba(54, 54, 54, 0.19);
+}
+
+.tnc {
+  margin-left: 10px;
+}
+
+.tncHyperlink {
+  color: #3576bb;
+  text-decoration: underline;
+}
+
+.tncHyperlink:hover {
+  cursor: pointer;
+}
+
+.calculation {
+  color: white;
+  animation: fadeIn 0.5s;
+  padding: 20px;
+  min-height: 600px;
+  max-width: 80vw;
+  width: 350px;
+  border: 2px solid grey;
+  border-radius: 30px;
+  background-color: #3576bb;
+  box-shadow: 0 2px 4px 0px rgba(68, 68, 68, 0.2), 0 4px 20px 0 rgba(54, 54, 54, 0.19);
+}
+
+
+@media (max-width: 768px) {
+  .calculation {
+    width: 80%;
+  }
+}
+
+.calculation p {
+  font-size: 16px;
+}
+
+.calculationAmount {
+  padding: 20px 0 20px 0;
+  margin: 50px 10px 50px 10px;
+  background-color: white;
+  color: #002f5f;
+  border-radius: 30px;
+}
+
+.calculationAmount p {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.w80 {
+  width: 90%;
+}
+
+.bg-white {
+  background: #fff;
+  color: #002f5f;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hide the modal by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%; /* Set the width of the modal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modal-message {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-button {
+  background-color: #3576bb;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-button:hover {
+  background-color: #6397cf;
+}
+
+/* Style the dropdown container */
+.dropdown-container {
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #e9e9e9;
+}

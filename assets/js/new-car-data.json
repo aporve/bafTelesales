@@ -1,0 +1,120 @@
+{
+    "type": [
+        {
+            "Code": "Toyota",
+            "Descr": "Toyota"
+        },
+        {
+            "Code": "Daihatsu",
+            "Descr": "Daihatsu"
+        },
+        {
+            "Code": "Honda",
+            "Descr": "Honda"
+        },
+        {
+            "Code": "Suzuki",
+            "Descr": "Suzuki"
+        },
+        {
+            "Code": "Mitsubishi",
+            "Descr": "Mitsubishi"
+        },
+        {
+            "Code": "Wuling",
+            "Descr": "Wuling"
+        },
+        {
+            "Code": "Nissan",
+            "Descr": "Nissan"
+        },
+        {
+            "Code": "Datsun",
+            "Descr": "Datsun"
+        },
+        {
+            "Code": "Mazda",
+            "Descr": "Mazda"
+        },
+        {
+            "Code": "DFSK",
+            "Descr": "DFSK"
+        },
+        {
+            "Code": "Renault",
+            "Descr": "Renault"
+        },
+        {
+            "Code": "Hyundai",
+            "Descr": "Hyundai"
+        },
+        {
+            "Code": "KIA",
+            "Descr": "KIA"
+        }
+    ],
+    "downpayment": [
+        {
+            "Code": "12^0.0868",
+            "Descr": "12 bulan"
+        },
+        {
+            "Code": "24^0.1629",
+            "Descr": "24 bulan"
+        },
+        {
+            "Code": "36^0.2421",
+            "Descr": "36 bulan"
+        },
+        {
+            "Code": "48^0.3287",
+            "Descr": "48 bulan"
+        },
+        {
+            "Code": "60^0.4189",
+            "Descr": "60 bulan"
+        }
+    ],
+    "installment": [
+        {
+            "Code": "0.05",
+            "Descr": "5%"
+        },
+        {
+            "Code": "0.1",
+            "Descr": "10%"
+        },
+        {
+            "Code": "0.15",
+            "Descr": "15%"
+        },
+        {
+            "Code": "0.2",
+            "Descr": "20%"
+        },
+        {
+            "Code": "0.25",
+            "Descr": "25%"
+        },
+        {
+            "Code": "0.3",
+            "Descr": "30%"
+        },
+        {
+            "Code": "0.35",
+            "Descr": "35%"
+        },
+        {
+            "Code": "0.4",
+            "Descr": "40%"
+        },
+        {
+            "Code": "0.45",
+            "Descr": "45%"
+        },
+        {
+            "Code": "0.5",
+            "Descr": "50%"
+        }
+    ]
+}

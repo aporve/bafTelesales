@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAF Apply Installment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="main-container2">
+
+    <div class="cards" id="cards">
+      <div class="card_1" onclick="nextStep1('Elektronik & Gadget Furnitur')">
+        <img class="image" src="./assets/image/svg/new-mp-home.svg" alt="">
+      </div>
+      <div class="card_2" onclick="nextStep2()">
+        <img class="image" src="./assets/image/svg/new-syana-home.svg" alt="">
+      </div>
+      <div class="card_3" onclick="nextStep3()">
+        <img class="image" src="./assets/image/svg/new-car-home.svg" alt="">
+      </div>
+      <div class="card_4" onclick="nextStep4()">
+        <img class="image" src="./assets/image/svg/new-nmc-home.svg" alt="">
+      </div>
+    </div>
+
+    <div class="container hide" id="ele_form">
+      <form action="#" class="form-2" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm1" onchange="optionSelection()" onblur="optionSelection()">
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Pilih Merk Barang">Pilih Merk Barang</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm2" disabled>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Harga Barang" class="formTitle">Harga Barang</label>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
+            <input type="text" id="eleForm3" placeholder=" Min. 1.000.0000" onclick="formatter('eleForm3', 'validationMessage1')" onchange="hargaFn()" oninput="hargaFn()"
+              disabled>
+          </div>
+          <span id="validationMessage1">Silahkan input nominal yang sesuai</span>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm4" disabled>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Uang Muka">Uang Muka</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm5" disabled>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" id="submit_elektronik" class="submit" onclick="myFunction('elektronik')" disabled>Hitung
+            Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="container calculation hide" id="submit_form">
+      <div style="text-align: center">
+        <h2>Estimasi Cicilan Bulanan Anda</h2>
+        <div class="calculationAmount"><p id="calcAmount"></p></div>
+        <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
+          akan menghubungi Anda.</p>
+        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold; padding: 8px; border-radius: 10px;"
+          onclick="showDetailForm()">Ajukan
+          Sekarang</button>
+
+      </div>
+    </div>
+
+    <div class="container hide" id="ele_form_details">
+      <form action="#" class="form-2">
+
+        <div class="mb-2">
+          <label for="Nama Lengkap">Nama Lengkap</label>
+          <div id="eleDetail1">
+            <input class="w80" type="text">
+            <span style="display: none; color: red;">Silahkan masukkan nama terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Email">Email</label>
+          <div id="eleDetail2">
+            <input class="w80" type="email">
+            <span style="display: none; color: red;">Silahkan masukan email yang valid terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Tanggal Lahir">Tanggal Lahir</label>
+          <div  id="eleDetail3">
+            <input class="w80" type="date" name="Tanggal Lahir">
+            <span style="display: none; color: red;">Silahkan masukan tanggal lahir dengan minimal umur 17 tahun</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Nomor Handphone">Nomor Handphone</label>
+          <div id="eleDetail4">
+            <input class="w80" type="number">
+            <span style="display: none; color: red;">Silahkan input nomor telepon yang valid</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Alamat">Alamat</label>
+          <div id="eleDetail5">
+            <textarea class="w80" name="eleDetail5" rows="4" cols="30"></textarea>
+            <span style="display: none; color: red;">Silahkan masukkan alamat terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Kota Tinggal">Kota Tinggal</label>
+          <div id="eleDetail6">
+            <input class="w80" type="text" id="cityInput">
+            <div id="dropdownContainer" class="dropdown-container"></div>
+            <span style="display: none; color: red;">Silahkan masukkan kota terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Kode Pos">Kode Pos</label>
+          <div id="eleDetail7">
+            <input class="w80" type="text">
+            <span style="display: none; color: red;">Silahkan masukan kode pos yang valid terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Tipe Pengajuan">Tipe Pengajuan</label>
+          <div>
+            <input class="w80" type="text" id="eleDetail8" disabled>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="kode Promo">Kode Promo</label><span style="font-size: small;"> (*jika ada)</span>
+          <div>
+            <input class="w80" type="text" id="eleDetail9">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Kode Referensi">Kode Referensi</label><span style="font-size: small;"> (*jika ada)</span>
+          <div>
+            <input class="w80" type="text" id="eleDetail10">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <input type="checkbox" id="eleDetail11" name="saya" value="saya1">
+          <label class="tnc" for="saya">Saya setuju dan bersedia menerima Informasi dari Bussan Auto
+            Finance dan rekanan dari Bussan
+            Auto Finance</label><br>
+        </div>
+
+        <div class="mb-2" id="eleDetail12">
+          <input type="checkbox" name="syarat" value="saya2">
+          <label class="tnc" for="syarat">Saya setuju dengan <a data-toggle="modal"
+              data-target="#exampleModalLong">Syarat dan Ketentuan Bussan Auto Finance</a>
+          </label><br>
+          <span style="display: none; color: red;">Anda harus menyetujui Syarat & Ketentuan terlebih dahulu sebelum melanjutkan</span>
+        </div>
+
+
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header submit_Form" style="text-align: center;">
+                <h5 style="font-size: 3rem;" class="modal-title" id="exampleModalLongTitle">Syarat dan Ketentuan Website
+                </h5>
+                <button style="display: none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Dimohon untuk membaca ketentuan penggunaan dengan seksama, dengan menggunakan website ini, Anda setuju
+                untuk mengikuti peraturan PT. Bussan Auto Finance yang telah ditetapkan.
+                <br><br>
+                <b>Batasan Pengunaan Produk</b>
+                <br><br>
+                Website PT. Bussan Auto Finance dibuat oleh PT. Bussan Auto Finance. Seluruh isi dari website PT. Bussan
+                Auto Finance berada di bawah lindungan hukum hak cipta. Pengguna dapat mengunduh materi untuk
+                kepentingan non-komersial. Dilarang menyalin, mendistribusikan kembali, atau mempublikasi bagian mana
+                pun dari website ini.
+                <br><br>
+                <b>Kepatuhan</b>
+                <br><br>
+                Dengan mengirimkan konten ke website PT. Bussan Auto Finance ini, secara otomatis Anda telah mengizinkan
+                PT. Bussan Auto Finance atau menjamin bahwa pemilik konten tersebut telah membolehkan PT. Bussan Auto
+                Finance, secara bebas royalti, berkelanjutan, tidak dapat dibatalkan, hak dan lisensi non-eksklusif
+                untuk menggunakan, mereproduksi, memodifikasi, mengadaptasi, menerbitkan, menerjemahkan dan
+                mendistribusikan konten (secara keseluruhan atau sebagian) ke seluruh dunia dan/atau untuk memasukkannya
+                ke dalam karya-karya lain dalam bentuk apapun, media atau teknologi yang sekarang dikenal atau
+                selanjutnya dikembangkan untuk ketentuan penuh dari hak cipta yang mungkin ada dalam konten tersebut.
+                Anda menjamin bahwa Anda pemilik materi yang Anda kirim dan bahwa materi tersebut tidak melanggar hak
+                cipta yang dimiliki orang lain. Anda juga mengizinkan pihak lain untuk mengakses, melihat, menyimpan
+                atau memperbanyak konten untuk penggunaan pribadi. Sesuai dengan izin ini, pemilik konten yang terdapat
+                dalam website ini memiliki setiap dan semua hak yang mungkin ada dalam konten tersebut PT. Bussan Auto
+                Finance tidak berkewajiban untuk menggunakan materi yang Anda kirimkan dan berhak untuk tidak
+                menggunakan materi yang sekiranya tidak layak, dengan mengirimkan materi atau bentuk yang berisi nama,
+                alamat dan/atau alamat email, Anda mengetahui bahwa nama, alamat dan/atau alamat e-mail Anda dapat
+                ditempatkan pada satu atau lebih mailing list PT. Bussan Auto Finance.
+                <br><br>
+                <b>Penggantian Rugi</b>
+                <br><br>
+                Website PT. Bussan Auto Finance dibuat oleh PT. Bussan Auto Finance. Seluruh isi dari website PT. Bussan
+                Auto Finance berada di bawah lindungan hukum hak cipta. Pengguna dapat mengunduh materi untuk
+                kepentingan non-komersial. Dilarang menyalin, mendistribusikan kembali, atau mempublikasi bagian mana
+                pun dari website ini.
+                <br><br>
+                <b>Batas Kewajiban</b>
+                <br><br>
+                PT. Bussan Auto Finance tidak mewakili atau menjamin bahwa website PT. Bussan Auto Finance ini akan
+                dapat diakses atau tersedia secara tepat waktu, atau bahwa akses ke website ini tidak akan terganggu
+                atau bebas dari kesalahan. Website ini didistribusikan dengan basis "sebagaimana adanya”, tanpa jaminan
+                apapun, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada jaminan hak atau jaminan
+                tersirat tentang perjualbelian atau kecocokan untuk tujuan tertentu. PT. Bussan Auto Finance (baik
+                perusahaan induk maupun afiliasi, atau petugas, direktur, karyawan, agen, perwakilan, penyedia informasi
+                atau lisensor) tidak bertanggung jawab terhadap kerugian apapun, baik secara langsung, tidak langsung,
+                insidental, khusus, konsekuensial, hukuman atau kerugian lainnya (terlepas dari bentuk tindakan), dengan
+                pengecualian bahwa perusahaan yang terkait dengan PT. Bussan Auto Finance dan produk PT. Bussan Auto
+                Finance, PT. Bussan Auto Finance tidak terafiliasi atau terkait dengan sponsor dari website lain yang
+                ter-hyperlink ke atau dari website PT. Bussan Auto Finance, serta tidak mensponsori konten yang ada di
+                website lain.
+                <br><br>
+                <b>Informasi Tambahan</b>
+                <br><br>
+                Semua produk, material dan informasi PT. Bussan Auto Finance yang terdapat di website ini ditujukan
+                untuk konsumen Indonesia, untuk informasi tentang produk di negara lain, silahkan mengunjungi website
+                khusus untuk negara tersebut. Produk spesifik PT. Bussan Auto Finance yang terdapat dalam website ini
+                mungkin tidak tersedia untuk didistribusikan atau dijual di luar Indonesia.
+                Persyaratan Penggunaan PT. Bussan Auto Finance
+                PT. Bussan Auto Finance, Penyedia layanan resmi, menyediakan website PT. Bussan Auto Finance sebagai
+                infrastruktur online bagi para orangtua untuk bertukar pikiran, pandangan, informasi serta opini.
+                Infrastruktur ini disediakan pada website yang dikenal sebagai Bussan Auto Finance -Pembiayaan Kredit
+                Motor Yamaha Penggunaan atau akses ke website PT. Bussan Auto Finance dianggap sebagai persetujuan dari
+                persyaratan dan ketentuan di bawah ini:
+                <br><br>
+                <b>Konten:</b>
+                <br><br>
+                1. Konten dalam website PT. Bussan Auto Finance yang ditempatkan oleh member adalah pandangan dan opini
+                dari setiap member dan tidak mewakili pandangan, opini atau mengatasnamakan Penyedia Layanan. Penyedia
+                Layanan hanya menyediakan website PT. Bussan Auto Finance sebagai infrastruktur untuk wacana publik dan
+                tidak membuat pernyataan terhadap keakuratan dan ketepatan informasi atau pendapat yang ditetapkan atau
+                dibagikan dalam forum.<br><br>
+                2. Pengguna dari website PT. Bussan Auto Finance mengetahui bahwa informasi yang ditetapkan atau
+                dibagikan<br><br>
+                pada forum tidak ditujukan untuk menggantikan saran yang dianjurkan para profesional. Pengguna harus
+                berhati-hati ketika menggunakan informasi tersebut dan harus selalu berkonsultasi dan mendapatkan saran
+                dari para profesional sebelum melakukan tindakan dari informasi manapun.
+                3. Penyedia Layanan tidak bertanggungjawab atas informasi atau pandangan yang diberikan di website PT.
+                Bussan Auto Finance.<br><br>
+                4. Penyedia Layanan tidak membuat jaminan tersurat maupun tersirat untuk kualitas, ruang lingkup,
+                akurasi<br><br>
+                atau validitas informasi, pandangan atau opini yang disediakan termasuk namun tidak terbatas pada
+                layanan internet, hubungan komunikasi dan file untuk diunduh. Penyedia Layanan juga tidak dapat dan
+                tidak menjamin bahwa isi, link online, file dan fungsi akan bebas dari infeksi virus dan properti
+                lainnya yang mencemarkan atau bersifat merusak.<br><br>
+                5. Anggota PT. Bussan Auto Finance tidak diperkenankan memberikan informasi atau komentar yang
+                menyinggung<br><br>
+                SARA (Suku, Agama, Ras & Antar Golongan), serta harus bebas dari unsur pornografi.
+                6. Anggota PT. Bussan Auto Finance tidak diperkenankan menuliskan komentar yang tidak pantas,
+                menyinggung,
+                melecehkan, dan menghujat tim admin dan sesama anggota dari Fan Page PT. Bussan Auto Finance.<br><br>
+                7. Anggota PT. Bussan Auto Finance tidak diperkenankan menggunakan Fan Page PT. Bussan Auto Finance
+                untuk
+                kepentingan promosi/ MLM/ memasarkan produk / Fan Page lain, atau kegiatan politik & kampanye tertentu
+                8. kecuali dengan ijin tertulis dari PT. Bussan Auto Finance sebelumnya.<br><br>
+                Para anggota PT. Bussan Auto Finance harus saling menghormati sesama dengan tidak memancing konflik atau
+                perdebatan, serta dan diharapkan untuk selalu menggunakan bahasa yang santun.<br><br>
+                9. Semua peraturan ini berlaku untuk setiap aktivitas di PT. Bussan Auto Finance. Aktivitas yang
+                dimaksud
+                antara lain adalah: Diskusi, Comment, Photo, Notes dan segala bentuk pemberian informasi yang dilakukan
+                oleh anggota di website PT. Bussan Auto Finance. <br>
+                Pihak admin website PT. Bussan Auto Finance berhak untuk langsung menghapus segala bentuk pemberian
+                informasi di Fan Page PT. Bussan Auto Finance yang melanggar poin-poin di atas tanpa pemberitahuan
+                sebelumnya.
+                Etiket Online
+                Saat menggunakan website PT. Bussan Auto Finance, pengguna setuju untuk berperilaku sewajarnya dan
+                secara bertanggungjawab, menghormati, tidak berlaku kasar atau memberikan komentar yang menghina para
+                pengguna lain. Penyedia Layanan berhak untuk membatalkan akun pengguna dan/atau menghapus secara
+                permanen pengguna yang tidak mematuhi ketentuan penggunaan yang terkandung di website PT. Bussan Auto
+                Finance.
+                Hak Editorial
+                PT. Bussan Auto Finance, dengan kebijakannya sendiri, berhak untuk memperbaiki atau menghapus posting
+                tanpa pemberitahuan atau penjelasan sebelumnya.
+                Hak Kekayaan Intelektual dan Hak Cipta
+                Penyedia Layanan memiliki semua hak kepemilikan atas kekayaan intelektual yang terkandung dalam website
+                PT. Bussan Auto Finance dan memiliki hak cipta dari semua isi konten tersebut.
+                Syarat Penggunaan
+                Pengguna setuju bahwa sementara ketelitian serta kehati-hatian telah dilakukan dalam menyediakan dan
+                memelihara website PT. Bussan Auto Finance, Penyedia Layanan melepaskan tanggung jawab atas konten atau
+                informasi yang diberikan oleh pengguna di website PT. Bussan Auto Finance. Penyedia Layanan tidak
+                bertanggungjawab baik secara langsung, tidak langsung, insidental, konsekuensial atau kerugian hukum
+                yang timbul dari akses, ketergantungan pada, tindakan karena, atau ketidakmampuan untuk menggunakan
+                website PT. Bussan Auto Finance, atau juga ketidakakuratan, kesalahan pernyataan, kesalahan, atau
+                kelalaian dalam konten tersebut. Tidak ada member, pengguna atau pihak ketiga yang berwenang untuk
+                membuat pernyataan, pendapat atau kontribusi apapun atas nama Penyedia Layanan. Penyedia Layanan berhak
+                untuk meninjau dan mengubah ketentuan penggunaan ini dari waktu ke waktu, tanpa pemberitahuan tertulis
+                sebelumnya. Pengguna dianggap telah menerima ketentuan penggunaan ini dan semua revisi serta
+                modifikasinya, jika ada, untuk melanjutkan akses atau penggunaan website PT. Bussan Auto Finance.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button style="display: none;" type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="submit_div">
+          <button type="submit" id="submit_elektronik_details" class="submit"
+            onclick="myFunction('ele_nextForm')" style="margin-bottom: 80px;">Ajukan
+            Cicilan</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="container calculation bg-white hide" id="success_popup">
+      <div style="text-align: center">
+        <img style="width: 50%;" src="./assets/image/svg/baf.png" alt="">
+        <h2>Terima Kasih</h2>
+
+        <p id="popupmsg"></p>
+      </div>
+    </div>
+
+    <div class="container calculation bg-white hide" id="failure_popup">
+      <div style="text-align: center">
+        <img style="width: 50%;" src="./assets/image/svg/icons8-cross-mark-48.png" alt="">
+        <h2>oh no</h2>
+
+        <p>Maaf saat ini sedang ada kendala, Silakan coba beberapa saat lagi.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="main-container2">
+
+    <div class="container hide" id="dana_syariah">
+      <form action="#" class="form-2" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Tipe Barang">Pilih Merk Motor</label>
+          <div id="eleForm6">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+              <option value="Yamaha">Yamaha</option>
+              <option value="Honda">Honda</option>
+              <option value="Kawasaki">Kawasaki</option>
+              <option value="Suzuki">Suzuki</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan pilih merk motor terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
+          <div id="eleForm7">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan tahun pembuatan motor terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman" class="formTitle">Jumlah Pinjaman</label>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
+            <input type="text" id="eleForm8" onclick="formatter('eleForm8', 'validationMessage')">
+          </div>
+          <span id="validationMessage">Silahkan input nominal yang sesuai</span>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div id="eleForm9">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+              <option value="6^0.266">6 bulan</option>
+              <option value="12^0.383">12 bulan</option>
+              <option value="18^0.488">18 bulan</option>
+              <option value="24^0.643">24 bulan</option>
+              <option value="30^0.807">30 bulan</option>
+              <option value="36^0.98">36 bulan</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction('dana_syariah')">Hitung Cicilan Anda</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container hide" id="mobil_baru">
+      <form action="#" class="form-2" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Merk Mobil">Pilih Merk Mobil</label>
+          <div id="eleForm10">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan pilih merk mobil terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Harga Mobil</label>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
+            <input type="text" id="eleForm11" onclick="formatter('eleForm11', 'validationMessage2')">
+          </div>
+          <span id="validationMessage2">Silahkan input nominal yang sesuai</span>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div id="eleForm12">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Uang Muka">Uang Muka</label>
+          <div id="eleForm13">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan jumlah uang muka terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction('mobil_baru')">Hitung Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="container hide" id="motor_baru">
+      <form action="#" class="form-2" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Merk Mobil">Pilih Motor</label>
+          <div id="eleForm14">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan pilih tipe motor terlebih dahulu</span>
+          </div>
+        </div>
+        <!-- New jumlah pinjaman input for motor yamaha baru with validation -->
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Harga Motor</label>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
+            <input type="text" id="eleForm15" onclick="formatter('eleForm15', 'validationMessage3')">
+          </div>
+          <span id="validationMessage3">Silahkan input nominal yang sesuai</span>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div id="eleForm16">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Uang Muka">Uang Muka</label>
+          <div id="eleForm17">
+            <select class="form-control" style="width: 100%;" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
+            </select>
+            <span style="display: none; color: red;">Silahkan tentukan jumlah uang muka terlebih dahulu</span>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction('motor_baru')">Hitung Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="container calculation hide" id="calculator">
+      <div style="text-align: center">
+        <h2>Estimasi Cicilan Bulanan Anda</h2>
+        <div class="calculationAmount"></div>
+        <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
+          akan menghubungi Anda.</p>
+        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold; padding: 8px; border-radius: 10px;"
+          onclick="openModal()">Ajukan
+          Sekarang</button>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Pastikan sebelum melanjutkan, kamu memiliki BPKB untuk pengajuan Dana Syariah.</p>
+        <button class="modal-button" onclick="closeModal()">OK</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./assets/js/index.js"></script>
+
+</body>
+
+</html>

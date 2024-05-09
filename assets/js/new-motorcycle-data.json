@@ -1,0 +1,140 @@
+{
+    "type": [
+        {
+            "Code": "Aerox 155",
+            "Descr": "Aerox 155"
+        },
+        {
+            "Code": "NMax",
+            "Descr": "NMax"
+        },
+        {
+            "Code": "Mio S",
+            "Descr": "Mio S"
+        },
+        {
+            "Code": "FreeGo",
+            "Descr": "FreeGo"
+        },
+        {
+            "Code": "Grand Filano",
+            "Descr": "Grand Filano"
+        },
+        {
+            "Code": "XMax",
+            "Descr": "XMax"
+        },
+        {
+            "Code": "Lexi",
+            "Descr": "Lexi"
+        },
+        {
+            "Code": "Jupiter",
+            "Descr": "Jupiter"
+        },
+        {
+            "Code": "Vega",
+            "Descr": "Vega"
+        },
+        {
+            "Code": "MX King",
+            "Descr": "MX King"
+        },
+        {
+            "Code": "All New XSR 155",
+            "Descr": "All New XSR 155"
+        },
+        {
+            "Code": "Byson",
+            "Descr": "Byson"
+        },
+        {
+            "Code": "MT 15",
+            "Descr": "MT 15"
+        },
+        {
+            "Code": "MT 25",
+            "Descr": "MT 25"
+        },
+        {
+            "Code": "R 15",
+            "Descr": "R 15"
+        },
+        {
+            "Code": "R 25",
+            "Descr": "R 25"
+        },
+        {
+            "Code": "Vixion",
+            "Descr": "Vixion"
+        },
+        {
+            "Code": "WR 155R",
+            "Descr": "WR 155R"
+        },
+        {
+            "Code": "Xabre",
+            "Descr": "Xabre"
+        },
+        {
+            "Code": "Fino",
+            "Descr": "Fino"
+        },
+        {
+            "Code": "Mio Spoke",
+            "Descr": "Mio Spoke"
+        },
+        {
+            "Code": "Mio Z",
+            "Descr": "Mio Z"
+        },
+        {
+            "Code": "All New Soul GT",
+            "Descr": "All New Soul GT"
+        },
+        {
+            "Code": "Xeon",
+            "Descr": "Xeon"
+        },
+        {
+            "Code": "Xride",
+            "Descr": "Xride"
+        }
+    ],
+    "downpayment": [
+        {
+            "Code": "0.10",
+            "Descr": "10%"
+        },
+        {
+            "Code": "0.20",
+            "Descr": "20%"
+        },
+        {
+            "Code": "0.30",
+            "Descr": "30%"
+        }
+    ],
+    "installment": [
+        {
+            "Code": "11^0.1376",
+            "Descr": "11 Bulan"
+        },
+        {
+            "Code": "17^0.3069",
+            "Descr": "17 Bulan"
+        },
+        {
+            "Code": "23^0.3771",
+            "Descr": "23 Bulan"
+        },
+        {
+            "Code": "29^0.4562",
+            "Descr": "29 Bulan"
+        },
+        {
+            "Code": "35^0.5905",
+            "Descr": "35 Bulan"
+        }
+    ]
+}
